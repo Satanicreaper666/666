@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeopleCraft — Indian Labor Law Handbook 2026</title>
+<style>
+:root{
+  --font-heading:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'SF Mono',ui-monospace,Menlo,Consolas,monospace;
+
+  --bg:#FAF9F5;
+  --bg-card:#FFFFFF;
+  --bg-elevated:#F0EEE8;
+  --bg-sidebar:#2D2B26;
+  --text:#2D2B26;
+  --text-2:#6B6560;
+  --text-3:#9B9590;
+  --border:#E5E0D5;
+  --border-lt:#EEEBE4;
+
+  --accent:#C96442;
+  --accent-soft:#FDF4EF;
+  --accent-hover:#B35738;
+  --teal:#2A7E6E;
+  --teal-soft:#F0F8F6;
+  --blue:#5B7FB5;
+  --blue-soft:#F2F5FA;
+  --amber:#B08730;
+  --amber-soft:#FBF7EE;
+  --purple:#8B6CAF;
+  --purple-soft:#F5F2F9;
+  --rose:#C05050;
+  --rose-soft:#FDF2F2;
+  --emerald:#3D8B6E;
+  --emerald-soft:#F0F8F5;
+
+  --r-sm:8px;--r-md:12px;--r-lg:16px;
+  --shadow:0 1px 3px rgba(45,43,38,.05);
+  --shadow-md:0 4px 16px rgba(45,43,38,.07);
+  --shadow-lg:0 10px 32px rgba(45,43,38,.09);
+  --sidebar-w:256px;--topbar-h:48px;
+  --ease:0.2s ease;
+  --content-w:700px;
+  --font-scale:1;
+}
+[data-theme="dark"]{
+  --bg:#1A1915;--bg-card:#23221D;--bg-elevated:#2C2B25;
+  --bg-sidebar:#131210;
+  --text:#E0DCD2;--text-2:#A09A8E;--text-3:#706B60;
+  --border:#3A3830;--border-lt:#2E2D27;
+  --accent:#D4865A;--accent-soft:#2C2118;--accent-hover:#E09570;
+  --teal-soft:#1A2A25;--blue-soft:#1C2230;--amber-soft:#2A2518;
+  --purple-soft:#221D2C;--rose-soft:#2A1A1A;--emerald-soft:#1A2A22;
+  --shadow:0 1px 3px rgba(0,0,0,.25);
+  --shadow-md:0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg:0 10px 32px rgba(0,0,0,.35);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topbar-h) + 12px)}
+body{
+  font-family:var(--font-body);background:var(--bg);color:var(--text);
+  line-height:1.78;-webkit-font-smoothing:antialiased;
+  font-size:calc(15px * var(--font-scale));
+  transition:background var(--ease),color var(--ease);
+}
+::selection{background:var(--accent);color:#fff}
+a{color:var(--accent);text-decoration:none;transition:color .15s}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+
+/* ════════ TOPBAR ════════ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--bg-card);border-bottom:1px solid var(--border-lt);
+  display:flex;align-items:center;gap:10px;padding:0 20px;z-index:200;
+  backdrop-filter:blur(16px);background:rgba(250,249,245,.92);
+  transition:background var(--ease),border var(--ease);
+}
+[data-theme="dark"] .topbar{background:rgba(26,25,21,.92)}
+.topbar-brand{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.topbar-brand .brand-name{font-weight:700;font-size:.88rem;color:var(--text);letter-spacing:-.01em}
+.topbar-brand .brand-sep{color:var(--border);font-weight:300;font-size:.88rem;margin:0 2px}
+.topbar-brand .brand-sub{font-weight:400;font-size:.82rem;color:var(--text-3)}
+.topbar-mid{flex:1;display:flex;justify-content:center;padding:0 12px}
+.topbar-actions{display:flex;align-items:center;gap:2px}
+
+/* Search */
+.searchbox{position:relative;width:min(380px,36vw)}
+.searchbox input{
+  width:100%;height:34px;background:var(--bg-elevated);border:1px solid var(--border);
+  border-radius:100px;padding:0 12px 0 34px;font:inherit;font-size:.82rem;color:var(--text);
+  outline:none;transition:all var(--ease);
+}
+.searchbox input::placeholder{color:var(--text-3)}
+.searchbox input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,100,66,.1)}
+.searchbox .s-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text-3);font-size:.8rem;pointer-events:none}
+.s-results{
+  position:absolute;top:calc(100% + 5px);left:0;right:0;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);
+  box-shadow:var(--shadow-lg);max-height:340px;overflow-y:auto;display:none;z-index:300;
+}
+.s-results.open{display:block}
+.s-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border-lt);transition:background .12s}
+.s-item:hover{background:var(--bg-elevated)}
+.s-item:last-child{border-bottom:none}
+.s-ch{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:1px}
+.s-snip{font-size:.82rem;color:var(--text-2)}
+.s-snip mark{background:var(--accent-soft);color:var(--accent);font-weight:600;padding:0 2px;border-radius:2px}
+.s-empty{padding:20px;text-align:center;color:var(--text-3);font-size:.82rem}
+
+/* Toolbar buttons */
+.tb{
+  width:32px;height:32px;border:none;border-radius:6px;
+  background:transparent;color:var(--text-3);cursor:pointer;display:grid;place-items:center;
+  font-size:.88rem;transition:all .15s;flex-shrink:0;
+}
+.tb:hover{background:var(--bg-elevated);color:var(--text)}
+.tb.on{background:var(--accent);color:#fff}
+.menu-tb{display:none}
+
+/* Font-size controls */
+.font-ctrl{display:flex;align-items:center;gap:0}
+.font-ctrl .tb{font-size:.72rem;font-weight:600;width:28px;height:28px}
+
+/* Progress */
+.progress-bar{position:fixed;top:var(--topbar-h);left:0;right:0;height:2px;background:var(--border-lt);z-index:199}
+.progress-bar .fill{height:100%;width:0;background:var(--accent);opacity:.5;transition:width .06s linear}
+
+/* ════════ SIDEBAR ════════ */
+.sidebar{
+  position:fixed;top:var(--topbar-h);left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--bg-sidebar);overflow-y:auto;z-index:150;padding:12px 0;
+  transition:transform var(--ease);
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent;
+}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
+.sb-label{
+  font-family:var(--font-mono);font-size:.58rem;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(255,255,255,.22);padding:10px 18px 4px;
+}
+.nav-i{
+  display:flex;align-items:center;gap:9px;padding:8px 18px;
+  color:rgba(255,255,255,.45);cursor:pointer;transition:all .15s;
+  font-size:.82rem;border-left:2px solid transparent;position:relative;
+}
+.nav-i:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.03)}
+.nav-i.on{color:#fff;background:rgba(201,100,66,.1);border-left-color:var(--accent)}
+.nav-i .n{font-family:var(--font-mono);font-size:.64rem;font-weight:500;min-width:20px;color:rgba(255,255,255,.22)}
+.nav-i.on .n{color:var(--accent)}
+.nav-i .lbl{flex:1;line-height:1.25}
+.nav-i .bm{opacity:0;transition:opacity .15s;cursor:pointer;color:rgba(255,255,255,.2);font-size:.78rem}
+.nav-i:hover .bm{opacity:1}
+.bm.saved{opacity:1!important;color:#D4865A}
+.nav-i .time{font-family:var(--font-mono);font-size:.58rem;color:rgba(255,255,255,.18);margin-left:auto}
+.sb-foot{padding:14px 18px;margin-top:8px;border-top:1px solid rgba(255,255,255,.05)}
+.sb-foot p{font-size:.65rem;color:rgba(255,255,255,.2);line-height:1.45}
+
+/* ════════ MAIN ════════ */
+.main{margin-left:var(--sidebar-w);padding-top:calc(var(--topbar-h) + 2px);min-height:100vh;transition:margin var(--ease)}
+
+/* ════════ HERO ════════ */
+.hero{
+  background:var(--bg-sidebar);color:#fff;position:relative;overflow:hidden;
+  padding:clamp(52px,9vw,100px) clamp(28px,6vw,72px) clamp(44px,7vw,80px);
+}
+.hero-inner{max-width:var(--content-w);position:relative;z-index:1}
+.hero-ey{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;
+}
+.hero-ey .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{
+  font-family:var(--font-heading);font-size:clamp(1.9rem,4.5vw,3.2rem);
+  font-weight:400;line-height:1.2;margin-bottom:14px;letter-spacing:-.01em;
+}
+.hero h1 em{font-style:normal;font-weight:700;color:#D4865A}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,.55);max-width:540px;line-height:1.7;margin-bottom:24px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.hero-tag{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  padding:5px 13px;border-radius:100px;font-size:.74rem;color:rgba(255,255,255,.6);
+}
+.hero-kpi{display:flex;gap:28px;flex-wrap:wrap;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
+.kpi-v{font-family:var(--font-heading);font-size:1.65rem;font-weight:700;color:#D4865A;line-height:1}
+.kpi-l{font-size:.68rem;color:rgba(255,255,255,.35);margin-top:3px}
+
+/* ════════ CHAPTER ════════ */
+.ch{padding:clamp(36px,5vw,60px) clamp(24px,5vw,64px);border-bottom:1px solid var(--border-lt);transition:background var(--ease)}
+.ch:nth-child(even){background:var(--bg-card)}
+.ch-inner{max-width:var(--content-w);margin:0 auto}
+.ch-ey{
+  font-family:var(--font-mono);font-size:.64rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:4px;
+}
+.ch h2{
+  font-family:var(--font-heading);font-size:clamp(1.4rem,2.8vw,1.85rem);
+  font-weight:400;line-height:1.3;margin-bottom:6px;color:var(--text);
+  transition:color var(--ease);
+}
+.ch-meta{font-size:.74rem;color:var(--text-3);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.ch-meta .reading-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--bg-elevated);padding:3px 10px;border-radius:100px;
+  font-family:var(--font-mono);font-size:.64rem;border:1px solid var(--border);
+}
+.ch p{margin-bottom:14px;color:var(--text-2);font-size:calc(.93rem * var(--font-scale));transition:color var(--ease)}
+.ch strong{color:var(--text);font-weight:700}
+
+/* ════════ ACCORDION SUB-SECTIONS ════════ */
+.acc{margin:20px 0;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border var(--ease)}
+.acc-head{
+  display:flex;align-items:center;gap:10px;padding:14px 18px;
+  cursor:pointer;user-select:none;background:var(--bg-card);transition:background .12s;
+}
+.acc-head:hover{background:var(--bg-elevated)}
+.acc-head h3{
+  font-family:var(--font-heading);font-size:1.05rem;font-weight:400;
+  flex:1;color:var(--text);line-height:1.3;
+}
+.acc-arrow{font-size:.7rem;color:var(--text-3);transition:transform .25s;flex-shrink:0}
+.acc.open .acc-arrow{transform:rotate(180deg)}
+.acc-body{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s}
+.acc.open .acc-body{max-height:8000px;padding:4px 18px 18px}
+
+/* ════════ CALLOUTS ════════ */
+.cbox{border-radius:var(--r-md);padding:18px 22px;margin:18px 0;border-left:4px solid;transition:background var(--ease)}
+.cbox-tag{font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.cbox-body{font-size:.86rem;line-height:1.65;color:var(--text-2)}
+.cbox-body strong{color:var(--text)}
+.cbox.c-red{background:var(--accent-soft);border-color:var(--accent)}.cbox.c-red .cbox-tag{color:var(--accent)}
+.cbox.c-blue{background:var(--blue-soft);border-color:var(--blue)}.cbox.c-blue .cbox-tag{color:var(--blue)}
+.cbox.c-teal{background:var(--teal-soft);border-color:var(--teal)}.cbox.c-teal .cbox-tag{color:var(--teal)}
+.cbox.c-amber{background:var(--amber-soft);border-color:var(--amber)}.cbox.c-amber .cbox-tag{color:var(--amber)}
+.cbox.c-purple{background:var(--purple-soft);border-color:var(--purple)}.cbox.c-purple .cbox-tag{color:var(--purple)}
+
+/* ════════ EXAMPLE / SCENARIO BOXES ════════ */
+.example{
+  margin:18px 0;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;
+  background:var(--bg-card);transition:background var(--ease);
+}
+.example-head{
+  display:flex;align-items:center;gap:8px;padding:12px 16px;
+  cursor:pointer;user-select:none;background:var(--emerald-soft);
+  border-bottom:1px solid var(--border-lt);transition:background .12s;
+}
+.example-head:hover{filter:brightness(.97)}
+.example-icon{font-size:1rem}
+.example-title{font-size:.82rem;font-weight:700;color:var(--emerald);flex:1}
+.example-toggle{font-size:.7rem;color:var(--text-3);transition:transform .25s}
+.example.open .example-toggle{transform:rotate(180deg)}
+.example-body{padding:0 16px;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s}
+.example.open .example-body{max-height:3000px;padding:14px 16px}
+.example-body p{font-size:.86rem;color:var(--text-2);margin-bottom:8px}
+
+/* ════════ QUIZ ════════ */
+.quiz{
+  margin:22px 0;border:1px solid var(--border);border-radius:var(--r-lg);
+  overflow:hidden;background:var(--bg-card);transition:background var(--ease);
+}
+.quiz-head{
+  background:var(--bg-sidebar);color:rgba(255,255,255,.85);padding:12px 18px;
+  display:flex;align-items:center;gap:8px;
+}
+.quiz-head-icon{font-size:1.1rem}
+.quiz-head-text{font-size:.84rem;font-weight:700;letter-spacing:.02em}
+.quiz-body{padding:18px 20px}
+.quiz-q{font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:12px;line-height:1.5}
+.quiz-opts{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.quiz-opt{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;
+  font-size:.86rem;color:var(--text-2);transition:all .15s;user-select:none;
+}
+.quiz-opt:hover{background:var(--bg-elevated);border-color:var(--text-3)}
+.quiz-opt .bullet{
+  width:20px;height:20px;border-radius:50%;border:2px solid var(--border);
+  display:grid;place-items:center;flex-shrink:0;transition:all .15s;font-size:.7rem;
+}
+.quiz-opt.correct{background:var(--emerald-soft);border-color:var(--emerald);color:var(--emerald)}
+.quiz-opt.correct .bullet{background:var(--emerald);border-color:var(--emerald);color:#fff}
+.quiz-opt.wrong{background:var(--rose-soft);border-color:var(--rose);color:var(--rose);opacity:.6}
+.quiz-opt.wrong .bullet{border-color:var(--rose);color:var(--rose)}
+.quiz-opt.disabled{pointer-events:none}
+.quiz-explain{
+  display:none;padding:12px 14px;background:var(--emerald-soft);
+  border-radius:var(--r-sm);font-size:.84rem;color:var(--text-2);line-height:1.6;
+  border-left:3px solid var(--emerald);
+}
+.quiz-explain.show{display:block}
+.quiz-explain strong{color:var(--emerald)}
+
+/* ════════ TOOLTIP (for legal terms) ════════ */
+.term{
+  border-bottom:1px dashed var(--accent);cursor:help;position:relative;
+  color:var(--text);font-weight:600;
+}
+.term .tip{
+  display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--bg-sidebar);color:#e0e0e0;padding:10px 14px;border-radius:var(--r-sm);
+  font-size:.78rem;font-weight:400;line-height:1.5;width:260px;
+  box-shadow:var(--shadow-lg);z-index:50;text-align:left;pointer-events:none;
+}
+.term .tip::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:var(--bg-sidebar);
+}
+.term:hover .tip{display:block}
+
+/* ════════ TABLES ════════ */
+.tbl{margin:18px 0;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border);overflow-x:auto;transition:border var(--ease)}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+thead th{
+  background:var(--bg-sidebar);color:#fff;padding:11px 14px;text-align:left;
+  font-weight:600;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;
+}
+[data-theme="dark"] thead th{background:#131210}
+tbody td{padding:11px 14px;border-bottom:1px solid var(--border-lt);color:var(--text-2);vertical-align:top;transition:all .12s}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:var(--bg-elevated)}
+.td-b{font-weight:700;color:var(--text)}
+
+/* ════════ LISTS ════════ */
+.al{list-style:none;margin:12px 0}
+.al li{padding:6px 0 6px 22px;position:relative;font-size:.9rem;color:var(--text-2)}
+.al li::before{content:'›';position:absolute;left:0;color:var(--accent);font-weight:800;font-size:1.05rem;line-height:1.6}
+.cl{list-style:none;margin:12px 0}
+.cl li{padding:8px 0 8px 28px;position:relative;font-size:.9rem;color:var(--text-2);border-bottom:1px solid var(--border-lt)}
+.cl li:last-child{border-bottom:none}
+.cl li::before{content:'☐';position:absolute;left:0;color:var(--teal);font-size:1rem}
+.nl{counter-reset:s;list-style:none;margin:14px 0}
+.nl li{counter-increment:s;padding:9px 0 9px 40px;position:relative;font-size:.9rem;color:var(--text-2)}
+.nl li::before{
+  content:counter(s);position:absolute;left:0;width:26px;height:26px;
+  background:var(--accent-soft);color:var(--accent);border-radius:50%;
+  display:grid;place-items:center;font-weight:700;font-size:.74rem;
+  font-family:var(--font-mono);
+}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.pill{background:var(--bg-elevated);border:1px solid var(--border);padding:4px 11px;border-radius:100px;font-size:.76rem;color:var(--text-2);transition:all var(--ease)}
+
+/* ════════ SPECIAL BLOCKS ════════ */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.cmp{border-radius:var(--r-md);padding:16px 18px;border:1px solid}
+.cmp-old{background:var(--rose-soft);border-color:rgba(220,38,38,.12)}
+.cmp-new{background:var(--teal-soft);border-color:rgba(14,138,114,.12)}
+.cmp-t{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.cmp-old .cmp-t{color:var(--rose)}.cmp-new .cmp-t{color:var(--teal)}
+.cmp-d{font-size:.86rem;color:var(--text-2);line-height:1.55}
+
+.fbox{
+  background:var(--bg-sidebar);color:#fff;border-radius:var(--r-md);
+  padding:18px 22px;margin:18px 0;text-align:center;
+}
+[data-theme="dark"] .fbox{border:1px solid var(--border)}
+.fbox-l{font-family:var(--font-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:6px}
+.fbox-v{font-family:var(--font-mono);font-size:1.05rem;color:#ef8354;font-weight:500}
+
+.timeline{border-left:2px solid var(--border);margin:18px 0 18px 12px;padding-left:22px}
+.tl-i{position:relative;padding-bottom:18px}
+.tl-i::before{content:'';position:absolute;left:-28px;top:5px;width:9px;height:9px;background:var(--accent);border-radius:50%;border:2px solid var(--bg)}
+.tl-d{font-family:var(--font-mono);font-size:.68rem;color:var(--accent);letter-spacing:.04em;margin-bottom:1px}
+.tl-t{font-size:.86rem;color:var(--text-2)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:20px 0}
+.stat{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 14px;text-align:center;transition:all var(--ease)}
+.stat:hover{border-color:var(--accent)}
+.stat-v{font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--accent);line-height:1}
+.stat-l{font-size:.68rem;color:var(--text-3);margin-top:3px;line-height:1.25}
+
+/* ════════ FOOTER ════════ */
+.footer{background:var(--bg-sidebar);color:rgba(255,255,255,.35);padding:32px clamp(24px,5vw,64px);text-align:center;font-size:.78rem;line-height:1.7}
+.footer strong{color:rgba(255,255,255,.6)}
+
+/* ════════ RESPONSIVE ════════ */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0);box-shadow:var(--shadow-lg)}
+  .main{margin-left:0}
+  .menu-tb{display:grid}
+  .searchbox{width:min(180px,28vw)}
+  .compare{grid-template-columns:1fr}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:140;display:none}
+  .overlay.show{display:block}
+}
+@media(max-width:500px){.searchbox{display:none}.brand-sep,.brand-sub{display:none}}
+
+.btt{
+  position:fixed;bottom:20px;right:20px;width:38px;height:38px;
+  background:var(--accent);color:#fff;border:none;border-radius:50%;
+  cursor:pointer;font-size:1rem;display:none;place-items:center;
+  box-shadow:var(--shadow-md);z-index:100;transition:transform .2s;
+}
+.btt:hover{transform:translateY(-2px)}
+.btt.show{display:grid}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <button class="tb menu-tb" onclick="toggleSidebar()" title="Menu">☰</button>
+  <div class="topbar-brand">
+    <span class="brand-name">PeopleCraft</span>
+    <span class="brand-sep">/</span>
+    <span class="brand-sub">Labor Law Handbook</span>
+  </div>
+  <div class="topbar-mid">
+    <div class="searchbox">
+      <span class="s-icon">⌕</span>
+      <input id="si" type="text" placeholder="Search… (⌘K)" autocomplete="off">
+      <div class="s-results" id="sr"></div>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <div class="font-ctrl">
+      <button class="tb" onclick="changeFontSize(-.05)" title="Smaller text">A−</button>
+      <button class="tb" onclick="changeFontSize(.05)" title="Larger text">A+</button>
+    </div>
+    <button class="tb" id="themeBtn" onclick="toggleTheme()" title="Dark mode (D)">◑</button>
+  </div>
+</header>
+
+<div class="progress-bar"><div class="fill" id="pf"></div></div>
+<div class="overlay" id="ov" onclick="toggleSidebar()"></div>
+
+<nav class="sidebar" id="sb">
+  <div class="sb-label">Chapters</div>
+  <div class="nav-i on" data-t="hero-s" onclick="go('hero-s')"><span class="n">—</span><span class="lbl">Home</span></div>
+  <div class="nav-i" data-t="c1" onclick="go('c1')"><span class="n">01</span><span class="lbl">Overview</span><span class="time">3 min</span><span class="bm" data-c="c1" onclick="event.stopPropagation();bm('c1')">☆</span></div>
+  <div class="nav-i" data-t="c2" onclick="go('c2')"><span class="n">02</span><span class="lbl">Wages &amp; Compensation</span><span class="time">5 min</span><span class="bm" data-c="c2" onclick="event.stopPropagation();bm('c2')">☆</span></div>
+  <div class="nav-i" data-t="c3" onclick="go('c3')"><span class="n">03</span><span class="lbl">Leave &amp; Working Hours</span><span class="time">4 min</span><span class="bm" data-c="c3" onclick="event.stopPropagation();bm('c3')">☆</span></div>
+  <div class="nav-i" data-t="c4" onclick="go('c4')"><span class="n">04</span><span class="lbl">Social Security</span><span class="time">5 min</span><span class="bm" data-c="c4" onclick="event.stopPropagation();bm('c4')">☆</span></div>
+  <div class="nav-i" data-t="c5" onclick="go('c5')"><span class="n">05</span><span class="lbl">Contracts &amp; Employment</span><span class="time">3 min</span><span class="bm" data-c="c5" onclick="event.stopPropagation();bm('c5')">☆</span></div>
+  <div class="nav-i" data-t="c6" onclick="go('c6')"><span class="n">06</span><span class="lbl">Termination &amp; Disputes</span><span class="time">5 min</span><span class="bm" data-c="c6" onclick="event.stopPropagation();bm('c6')">☆</span></div>
+  <div class="nav-i" data-t="c7" onclick="go('c7')"><span class="n">07</span><span class="lbl">POSH Compliance</span><span class="time">3 min</span><span class="bm" data-c="c7" onclick="event.stopPropagation();bm('c7')">☆</span></div>
+  <div class="nav-i" data-t="c8" onclick="go('c8')"><span class="n">08</span><span class="lbl">State Provisions</span><span class="time">2 min</span><span class="bm" data-c="c8" onclick="event.stopPropagation();bm('c8')">☆</span></div>
+  <div class="nav-i" data-t="c9" onclick="go('c9')"><span class="n">09</span><span class="lbl">Compliance Checklists</span><span class="time">4 min</span><span class="bm" data-c="c9" onclick="event.stopPropagation();bm('c9')">☆</span></div>
+  <div class="nav-i" data-t="c10" onclick="go('c10')"><span class="n">10</span><span class="lbl">Penalties</span><span class="time">2 min</span><span class="bm" data-c="c10" onclick="event.stopPropagation();bm('c10')">☆</span></div>
+  <div class="nav-i" data-t="c11" onclick="go('c11')"><span class="n">11</span><span class="lbl">Looking Ahead</span><span class="time">3 min</span><span class="bm" data-c="c11" onclick="event.stopPropagation();bm('c11')">☆</span></div>
+  <div class="sb-foot"><p>Updated Feb 2026 · Effective 21 Nov 2025<br>Total reading time: ~39 min</p></div>
+</nav>
+
+<main class="main" id="mc">
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="hero-s">
+  <div class="hero-inner">
+    <div class="hero-ey"><span class="dot"></span> Updated February 2026</div>
+    <h1>Indian Labor Law<br><em>Handbook</em></h1>
+    <p class="hero-desc">The definitive compliance guide for HR professionals and employers — covering India's four new Labour Codes effective 21 November 2025.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Code on Wages, 2019</span>
+      <span class="hero-tag">Industrial Relations Code, 2020</span>
+      <span class="hero-tag">Code on Social Security, 2020</span>
+      <span class="hero-tag">OSHWC Code, 2020</span>
+    </div>
+    <div class="hero-kpi">
+      <div><div class="kpi-v">29→4</div><div class="kpi-l">Laws consolidated</div></div>
+      <div><div class="kpi-v">64%+</div><div class="kpi-l">Workers covered</div></div>
+      <div><div class="kpi-v">50%</div><div class="kpi-l">Basic pay minimum</div></div>
+      <div><div class="kpi-v">2 days</div><div class="kpi-l">F&amp;F settlement</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ C1: OVERVIEW ════════ -->
+<section class="ch" id="c1"><div class="ch-inner">
+  <div class="ch-ey">Chapter 01</div>
+  <h2>Introduction &amp; Overview</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 3 min read</span></div>
+  <p>India consolidated <strong>29 legacy labor laws</strong> into <strong>four comprehensive Labour Codes</strong>, effective 21 November 2025. This is the most significant labor reform since independence. For HR, mastering these codes is essential for workforce transparency, equity, and trust.</p>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>The Four Labour Codes at a Glance</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Code</th><th>Year</th><th>Focus</th><th>Replaced</th></tr></thead>
+      <tbody>
+        <tr><td class="td-b">Code on Wages</td><td>2019</td><td>Minimum wages, payment, bonus, equal remuneration</td><td><strong>4</strong> laws</td></tr>
+        <tr><td class="td-b">Industrial Relations</td><td>2020</td><td>Unions, standing orders, disputes, strikes/lockouts</td><td><strong>3</strong> laws</td></tr>
+        <tr><td class="td-b">Social Security</td><td>2020</td><td>PF, ESI, gratuity, maternity, gig workers</td><td><strong>9</strong> laws</td></tr>
+        <tr><td class="td-b">OSHWC</td><td>2020</td><td>Safety, health, working conditions, welfare</td><td><strong>13</strong> laws</td></tr>
+      </tbody>
+    </table></div>
+  </div></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>Implementation Timeline</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="cbox c-red"><div class="cbox-tag">⚡ Key Update — Feb 2026</div><div class="cbox-body">All four codes are in force. <strong>Draft Central Rules</strong> published 30 Dec 2025 for 30–45 day consultation. Final rules expected <strong>1 Apr 2026</strong>. Karnataka, Maharashtra, and Kerala have notified final state rules. During transition, existing laws continue alongside new codes.</div></div>
+    <div class="timeline">
+      <div class="tl-i"><div class="tl-d">21 Nov 2025</div><div class="tl-t">All four Labour Codes come into force, replacing 29 laws</div></div>
+      <div class="tl-i"><div class="tl-d">30 Dec 2025</div><div class="tl-t">Draft Central Rules published for public consultation</div></div>
+      <div class="tl-i"><div class="tl-d">Jan–Feb 2026</div><div class="tl-t">Consultation period; states publishing draft/final rules</div></div>
+      <div class="tl-i"><div class="tl-d">1 Apr 2026 (Expected)</div><div class="tl-t">Final rules notified — full operational implementation</div></div>
+    </div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>Why These Laws Matter for HR</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li><strong>Protecting Rights</strong> — Mandatory appointment letters for all; transparency from day one</li>
+      <li><strong>Lower Legal Risk</strong> — First-time minor non-compliances attract penalties, not imprisonment</li>
+      <li><strong>Culture of Trust</strong> — Aligned HR policies reduce turnover, strengthen internal culture</li>
+      <li><strong>ESG Alignment</strong> — Gig/platform worker recognition strengthens social credentials</li>
+      <li><strong>Expanded Coverage</strong> — Social security from ~19% (2015) to 64%+ of workforce</li>
+    </ul>
+  </div></div>
+
+  <!-- QUIZ -->
+  <div class="quiz" id="q1">
+    <div class="quiz-head"><span class="quiz-head-icon">✦</span><span class="quiz-head-text">Test Your Understanding</span></div>
+    <div class="quiz-body">
+      <div class="quiz-q">How many legacy labor laws were consolidated into the four new Labour Codes?</div>
+      <div class="quiz-opts">
+        <div class="quiz-opt" onclick="checkQuiz(this,'q1',false)"><span class="bullet"></span>15</div>
+        <div class="quiz-opt" onclick="checkQuiz(this,'q1',true)"><span class="bullet"></span>29</div>
+        <div class="quiz-opt" onclick="checkQuiz(this,'q1',false)"><span class="bullet"></span>44</div>
+        <div class="quiz-opt" onclick="checkQuiz(this,'q1',false)"><span class="bullet"></span>12</div>
+      </div>
+      <div class="quiz-explain" id="q1-ex"><strong>Correct!</strong> India consolidated 29 central labor laws into 4 comprehensive codes: Code on Wages (4 laws), IR Code (3), SS Code (9), and OSHWC Code (13).</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ════════ C2: WAGES ════════ -->
+<section class="ch" id="c2"><div class="ch-inner">
+  <div class="ch-ey">Chapter 02</div>
+  <h2>Wages &amp; Compensation Regulations</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 5 min read</span></div>
+  <p>The Code on Wages, 2019, merges four legacy acts. It directly affects salary structure, take-home pay, PF, overtime, gratuity, and minimum wages for every worker.</p>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>2.1 The 50% Wage Rule — The Biggest Change</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p><span class="term">Basic pay<span class="tip">The fixed, non-variable component of an employee's salary before any allowances, benefits, or deductions are added. Forms the basis for PF, gratuity, and other statutory calculations.</span></span> + <span class="term">DA<span class="tip">Dearness Allowance — a cost-of-living adjustment paid to employees, calculated as a percentage of basic pay. Revised periodically based on CPI.</span></span> + retaining allowance must be ≥ <strong>50% of total remuneration</strong>. If exclusions exceed 50%, the excess is reclassified as "wages" for statutory calculations.</p>
+
+    <div class="example"><div class="example-head" onclick="te(this)"><span class="example-icon">💡</span><span class="example-title">Real-World Scenario — Salary Restructuring</span><span class="example-toggle">▾</span></div><div class="example-body">
+      <p><strong>Priya earns ₹10,00,000 CTC</strong> with basic at 35% (₹3,50,000). Under the 50% rule:</p>
+      <p>Her basic must rise to ≥₹5,00,000. Annual PF jumps from ₹42,000 → ₹60,000. Monthly take-home drops by ~₹1,500, but her retirement corpus grows by ₹18,000/year. Over a 25-year career, this compounds to <strong>₹12+ lakhs</strong> extra in retirement savings.</p>
+      <p><strong>HR Action:</strong> Restructure CTC components before the next payroll cycle. Communicate the long-term benefit to employees proactively.</p>
+    </div></div>
+
+    <h4 style="font-size:.92rem;font-weight:700;margin:14px 0 8px;color:var(--text)">Exclusions (Capped at 50%)</h4>
+    <div class="pills">
+      <span class="pill">HRA</span><span class="pill">Conveyance</span><span class="pill">Employer's PF</span><span class="pill">Statutory Bonus</span><span class="pill">Overtime</span><span class="pill">Commission</span><span class="pill">Gratuity</span><span class="pill">Retrenchment Comp.</span><span class="pill">In-kind (≤15%)</span>
+    </div>
+    <div class="cbox c-blue"><div class="cbox-tag">📋 Draft Rules Clarification</div><div class="cbox-body">Performance-linked annual payments not in the employment contract's regular remuneration are excluded from "wages" for gratuity. This helps structure variable pay and bonuses.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>2.2 National Floor Wage &amp; Minimum Wages</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li>Central Government fixes <span class="term">national floor wage<span class="tip">The absolute minimum wage baseline for the entire country. No state can set minimum wages below this level. Reviewed every 5 years.</span></span> based on living standards</li>
+      <li>Different floor wages for different geographical areas</li>
+      <li>State minimum wages must be ≥ floor wage</li>
+      <li>Applies <strong>universally</strong> — all workers, all sectors, including unorganized</li>
+      <li>Equal pay for equal work extended to all genders including transgender persons</li>
+      <li>Floor wage reviewed every 5 years maximum</li>
+    </ul>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>2.3 Payment of Wages</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Provision</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="td-b">Payment Deadline</td><td>By 7th (&lt;1,000 workers) or 10th (1,000+) of each month</td></tr>
+        <tr><td class="td-b">Payment Modes</td><td>Bank transfer, cheque, or digital only</td></tr>
+        <tr><td class="td-b">Max Deductions</td><td>≤50% of total wages</td></tr>
+        <tr><td class="td-b">Full &amp; Final Settlement</td><td><strong>Within 2 working days</strong> of separation (NEW)</td></tr>
+      </tbody>
+    </table></div>
+    <div class="cbox c-red"><div class="cbox-tag">⚡ 2-Day Full &amp; Final Settlement</div><div class="cbox-body">All wages payable on separation must be settled within <strong>two working days</strong> — regardless of resignation, termination, or any other exit. Gratuity, leave encashment follow as soon as practicable. This demands real-time payroll reconciliation and automated F&amp;F workflows.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>2.4 Equal Remuneration &amp; Bonus</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Gender discrimination in wages/recruitment is prohibited. <strong>Bonus:</strong> min 8.33% (or ₹100), max 20%. Workers eligible after <strong>30 days</strong> of work in a year.</p>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>2.5 HR Compliance Checklist</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table>
+      <thead><tr><th>Action</th><th>Timeline</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>Audit salary structures for 50% rule</td><td>Immediate / Quarterly</td><td>HR &amp; Payroll</td></tr>
+        <tr><td>Restructure CTC if allowances &gt;50%</td><td>Before next payroll</td><td>Comp. Team</td></tr>
+        <tr><td>Update payroll software</td><td>Immediate</td><td>IT &amp; Payroll</td></tr>
+        <tr><td>Implement 2-day F&amp;F process</td><td>Immediate</td><td>HRIS</td></tr>
+        <tr><td>Verify minimum wage compliance</td><td>Monthly</td><td>HR Compliance</td></tr>
+        <tr><td>Distribute annual bonus</td><td>Within 8 months of FY</td><td>Finance</td></tr>
+      </tbody>
+    </table></div>
+  </div></div>
+
+  <div class="quiz" id="q2"><div class="quiz-head"><span class="quiz-head-icon">✦</span><span class="quiz-head-text">Test Your Understanding</span></div><div class="quiz-body">
+    <div class="quiz-q">Under the new Code on Wages, within how many working days must full &amp; final settlement be completed after separation?</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" onclick="checkQuiz(this,'q2',true)"><span class="bullet"></span>2 working days</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q2',false)"><span class="bullet"></span>7 working days</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q2',false)"><span class="bullet"></span>30 days</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q2',false)"><span class="bullet"></span>No timeline specified</div>
+    </div>
+    <div class="quiz-explain" id="q2-ex"><strong>Correct!</strong> The Code on Wages requires all wages payable on separation to be settled within 2 working days. Other components like gratuity and leave encashment follow as soon as practicable.</div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C3: LEAVE ════════ -->
+<section class="ch" id="c3"><div class="ch-inner">
+  <div class="ch-ey">Chapter 03</div><h2>Leave &amp; Working Hours</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 4 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>3.1 Working Hours &amp; Overtime</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Provision</th><th>Requirement</th><th>Reference</th></tr></thead><tbody>
+      <tr><td class="td-b">Daily Hours</td><td>Max 8 hours</td><td>OSHWC Code</td></tr>
+      <tr><td class="td-b">Weekly Hours</td><td>Max 48 hours</td><td>OSHWC Code</td></tr>
+      <tr><td class="td-b">Spread Over</td><td>Max 12 hours incl. rest</td><td>OSHWC Code</td></tr>
+      <tr><td class="td-b">Overtime</td><td>2× normal wage</td><td>Code on Wages</td></tr>
+      <tr><td class="td-b">Weekly Off</td><td>1 day mandatory</td><td>OSHWC Code</td></tr>
+      <tr><td class="td-b">Women's Night Shifts</td><td>Permitted with consent + safety</td><td>OSHWC Code</td></tr>
+    </tbody></table></div>
+    <div class="cbox c-teal"><div class="cbox-tag">🌙 Women's Night Shift — Draft Rules</div><div class="cbox-body">Shifts after 7 PM or before 6 AM need explicit consent. Employers must provide transport, security, and safety infrastructure. A major step toward gender equality.</div></div>
+    <div class="cbox c-blue"><div class="cbox-tag">⏱ Overtime Clarification</div><div class="cbox-body">OT triggers beyond <strong>48 hrs/week</strong> (no separate daily threshold). For daily wagers: beyond <strong>8 hrs/day</strong>.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>3.2 Leave Entitlements</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Leave</th><th>Entitlement</th><th>Notes</th></tr></thead><tbody>
+      <tr><td class="td-b">Earned Leave</td><td>1 day per 20 worked (~15/yr)</td><td>Carry-forward varies; encashment allowed</td></tr>
+      <tr><td class="td-b">Sick Leave</td><td>6–12 days/yr (state)</td><td>Medical cert for 3+ days</td></tr>
+      <tr><td class="td-b">Casual Leave</td><td>7–10 days/yr (state)</td><td>No combining in some states</td></tr>
+      <tr><td class="td-b">Festival Holidays</td><td>5–15/yr (state)</td><td>Plus 3 national holidays</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>3.3 Maternity, Paternity &amp; Adoption</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li><strong>26 weeks</strong> paid maternity leave (first two children)</li>
+      <li><strong>12 weeks</strong> for third child+, commissioning, and adoption (child &lt;3 months)</li>
+      <li>Mandatory crèche (50+ employees) or allowance ≥₹500/month per child</li>
+      <li>WFH flexibility post-maternity where work permits</li>
+      <li>Maternity compliance affirmed in annual Board Reports (July 2025)</li>
+      <li><strong>Paternity:</strong> 15 days (Central Govt only); private sector: 5–30 days by company policy</li>
+    </ul>
+    <div class="example"><div class="example-head" onclick="te(this)"><span class="example-icon">💡</span><span class="example-title">Scenario — Crèche Allowance Calculation</span><span class="example-toggle">▾</span></div><div class="example-body">
+      <p><strong>TechCorp has 120 employees</strong> and no in-house crèche. Under draft rules, they must pay ≥₹500/month per child to eligible employees. If 15 working mothers have one child each, monthly cost = ₹7,500 (₹90,000/year). Setting up a crèche may be more cost-effective above ~25 eligible employees.</p>
+    </div></div>
+  </div></div>
+
+  <div class="quiz" id="q3"><div class="quiz-head"><span class="quiz-head-icon">✦</span><span class="quiz-head-text">Test Your Understanding</span></div><div class="quiz-body">
+    <div class="quiz-q">What is the maximum daily working hours under the OSHWC Code?</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" onclick="checkQuiz(this,'q3',true)"><span class="bullet"></span>8 hours</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q3',false)"><span class="bullet"></span>9 hours</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q3',false)"><span class="bullet"></span>10 hours</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q3',false)"><span class="bullet"></span>12 hours</div>
+    </div>
+    <div class="quiz-explain" id="q3-ex"><strong>Correct!</strong> The OSHWC Code reduces daily working hours to 8 (from 9 under the old Factories Act). The spread-over including rest intervals is capped at 12 hours.</div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C4: SOCIAL SECURITY ════════ -->
+<section class="ch" id="c4"><div class="ch-inner">
+  <div class="ch-ey">Chapter 04</div><h2>Social Security, Benefits &amp; Welfare</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 5 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>4.1 EPF Contributions</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Both employer &amp; employee: <strong>12%</strong> of basic + DA. From employer's share: 8.33% → <span class="term">EPS<span class="tip">Employees' Pension Scheme — provides monthly pension after retirement. Funded by 8.33% of employer's PF contribution.</span></span>, rest → PF. Deposit by 15th monthly. UAN + Aadhaar + PAN linkage mandatory.</p>
+    <div class="cbox c-amber"><div class="cbox-tag">📊 Impact of 50% Rule on PF</div><div class="cbox-body">Higher basic = higher PF. Reduces take-home but strengthens retirement savings. HR must communicate this trade-off clearly — frame it as a long-term benefit.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>4.2 ESI Coverage</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Type</th><th>Rate</th><th>Coverage</th></tr></thead><tbody>
+      <tr><td class="td-b">Employer</td><td>3.25%</td><td>Medical, insurance, maternity</td></tr>
+      <tr><td class="td-b">Employee</td><td>0.75%</td><td>Healthcare, disability, unemployment</td></tr>
+      <tr><td class="td-b">Wage Ceiling</td><td>₹21,000/mo</td><td>All employees up to this</td></tr>
+    </tbody></table></div>
+    <p>ESI being extended <strong>PAN-India</strong>. Even one employee in hazardous processes triggers coverage.</p>
+  </div></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>4.3 Gratuity — Major Changes</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="compare">
+      <div class="cmp cmp-old"><div class="cmp-t">Previously</div><div class="cmp-d">5 years continuous service for all (except death/disablement)</div></div>
+      <div class="cmp cmp-new"><div class="cmp-t">New Codes</div><div class="cmp-d">Fixed-term: <strong>1 year</strong>. Service &gt;6 months rounds up. Prospective from 21 Nov 2025.</div></div>
+    </div>
+    <div class="fbox"><div class="fbox-l">Gratuity Formula</div><div class="fbox-v">(Last drawn basic × 15 × years of service) ÷ 26</div></div>
+
+    <div class="example"><div class="example-head" onclick="te(this)"><span class="example-icon">💡</span><span class="example-title">Scenario — Fixed-Term Gratuity Cost Impact</span><span class="example-toggle">▾</span></div><div class="example-body">
+      <p><strong>Company with 200 fixed-term employees</strong> at avg. basic ₹25,000/month. Previously: no gratuity (tenure &lt;5 years). Now: gratuity after 1 year = ₹25,000 × 15 ÷ 26 = <strong>₹14,423 per employee per year</strong>. Total new annual liability: <strong>₹28.8 lakhs</strong>.</p>
+      <p><strong>Action:</strong> Budget immediately. Review fixed-term reliance. Consider actuarial valuation.</p>
+    </div></div>
+    <div class="cbox c-red"><div class="cbox-tag">🔔 Action Required</div><div class="cbox-body">Identify fixed-term populations. Estimate cost impact. For minor beneficiaries, deposit with competent authority. Significant budgetary implications for contract-heavy companies.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>4.4 Gig &amp; Platform Workers</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li>Aggregators: 1–2% of turnover (capped at 5% of payments to workers)</li>
+      <li>Aadhaar-linked UANs for benefit portability</li>
+      <li>Social Security Fund for unorganized, gig, platform workers</li>
+    </ul>
+    <div class="cbox c-blue"><div class="cbox-tag">📋 Draft Rules — Eligibility</div><div class="cbox-body">First-time minimum engagement thresholds being defined for gig/platform workers to qualify for social security.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>4.5 Workplace Safety &amp; Welfare</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Requirement</th><th>Applicability</th><th>Detail</th></tr></thead><tbody>
+      <tr><td class="td-b">Health Check-ups</td><td>Workers 40+</td><td>Free, within 120 days of year start</td></tr>
+      <tr><td class="td-b">Appointment Letters</td><td>All workers</td><td>Within 3 months of rules</td></tr>
+      <tr><td class="td-b">Welfare Committees</td><td>250+ employees</td><td>Well-being + grievances</td></tr>
+      <tr><td class="td-b">Crèche</td><td>50+ employees</td><td>Or ≥₹500/mo per child</td></tr>
+      <tr><td class="td-b">Canteen</td><td>250+ workers</td><td>With seating</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="quiz" id="q4"><div class="quiz-head"><span class="quiz-head-icon">✦</span><span class="quiz-head-text">Test Your Understanding</span></div><div class="quiz-body">
+    <div class="quiz-q">Under the new codes, how many years of service are needed for fixed-term employees to qualify for gratuity?</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" onclick="checkQuiz(this,'q4',false)"><span class="bullet"></span>5 years</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q4',false)"><span class="bullet"></span>3 years</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q4',true)"><span class="bullet"></span>1 year</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q4',false)"><span class="bullet"></span>No minimum</div>
+    </div>
+    <div class="quiz-explain" id="q4-ex"><strong>Correct!</strong> Fixed-term employees now qualify for gratuity after just 1 year of continuous service — down from 5 years previously. Service exceeding 6 months rounds up.</div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C5: CONTRACTS ════════ -->
+<section class="ch" id="c5"><div class="ch-inner">
+  <div class="ch-ey">Chapter 05</div><h2>Contracts &amp; Fixed-Term Employment</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 3 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>5.1 Mandatory Appointment Letters</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Every worker must get a written appointment letter <strong>within 3 months</strong> of rules taking effect. Must include position, wages, hours, terms.</p>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>5.2 Fixed-Term Employment Rules</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li>Same wages/benefits as permanent employees doing same work</li>
+      <li>ESI, EPF, bonus, gratuity proportionate to tenure</li>
+      <li>Gratuity after 1 year (service &gt;6 months rounds up)</li>
+      <li>Auto-terminates on expiry if stated in advance</li>
+      <li><strong>Cannot</strong> convert permanent roles to fixed-term to circumvent obligations</li>
+    </ul>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>5.3 Contract Labour &amp; Key Definitions</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Contract labour restricted for <strong>core activities</strong>. Separate grievance mechanisms for contract workers.</p>
+    <div class="cbox c-blue"><div class="cbox-tag">📋 Updated Definitions</div><div class="cbox-body"><strong>Worker</strong> now includes sales promotion employees &amp; working journalists. Supervisor threshold: ₹10K → ₹18K/month.<br><strong>Inter-state migrants:</strong> Round-trip home travel allowance every 12 months after 180 days.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>5.4 Work-From-Home</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Formally recognized under Model Standing Orders for service-sector employment. HR should develop clear policies covering hours, data security, communication, and performance.</p>
+  </div></div>
+</div></section>
+
+<!-- ════════ C6: TERMINATION ════════ -->
+<section class="ch" id="c6"><div class="ch-inner">
+  <div class="ch-ey">Chapter 06</div><h2>Termination, Grievance &amp; Disputes</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 5 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>6.1 Termination &amp; Notice</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>1+ year service: one month's notice (or wages in lieu) + <span class="term">retrenchment compensation<span class="tip">Statutory payment = 15 days' average pay × completed years of service. Paid when an employee is retrenched due to surplus labour, restructuring, or closure.</span></span> = 15 days' average pay per completed year.</p>
+    <div class="example"><div class="example-head" onclick="te(this)"><span class="example-icon">💡</span><span class="example-title">Scenario — Retrenchment Calculation</span><span class="example-toggle">▾</span></div><div class="example-body">
+      <p><strong>Amit, 5 years service, basic ₹40,000/month.</strong> Retrenched due to restructuring. He receives: 1 month notice pay (₹40,000) + retrenchment compensation (15 × 5 × ₹40,000 ÷ 26 = <strong>₹1,15,385</strong>) + Reskilling Fund contribution by employer (15 days' wages = <strong>₹23,077</strong> deposited to his account within 45 days).</p>
+    </div></div>
+  </div></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>6.2 Retrenchment Threshold — Major Change</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="compare">
+      <div class="cmp cmp-old"><div class="cmp-t">Previously</div><div class="cmp-d">Govt approval at <strong>100+</strong> workers</div></div>
+      <div class="cmp cmp-new"><div class="cmp-t">New Code</div><div class="cmp-d"><strong>300 workers</strong> — greater flexibility. States may vary.</div></div>
+    </div>
+    <ul class="al">
+      <li><strong>Reskilling Fund:</strong> 15 days' wages per worker, within 10 days of retrenchment</li>
+      <li>Fund transferred to worker's bank within 45 days</li>
+      <li>Business justifications required for large-scale actions</li>
+    </ul>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>6.3 Strikes, Lock-outs &amp; Unions</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p><strong>14 days' notice</strong> for strikes (all establishments) and lock-outs. Prohibited during/7 days after conciliation. Union with <strong>51%+ membership</strong> = sole negotiating union; otherwise, proportional negotiating council.</p>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>6.4 Grievance &amp; Dispute Resolution</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Grievance committee mandatory for <strong>20+ workers</strong> with women's representation.</p>
+    <ol class="nl"><li><strong>Conciliation</strong> — by labor officers; formal prerequisite</li><li><strong>Arbitration</strong> — mutual agreement</li><li><strong>Industrial Tribunals</strong> — two-member panels</li></ol>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>6.5 Domestic Inquiry Process</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ol class="nl"><li>Show-cause notice with specific allegations</li><li>Employee's written explanation</li><li>Investigation with impartial inquiry officer</li><li>Complete documentation of proceedings</li><li>Action only if misconduct proven per standing orders</li></ol>
+  </div></div>
+
+  <div class="quiz" id="q6"><div class="quiz-head"><span class="quiz-head-icon">✦</span><span class="quiz-head-text">Test Your Understanding</span></div><div class="quiz-body">
+    <div class="quiz-q">What is the new threshold for requiring government approval before retrenchment?</div>
+    <div class="quiz-opts">
+      <div class="quiz-opt" onclick="checkQuiz(this,'q6',false)"><span class="bullet"></span>100 workers</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q6',false)"><span class="bullet"></span>200 workers</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q6',true)"><span class="bullet"></span>300 workers</div>
+      <div class="quiz-opt" onclick="checkQuiz(this,'q6',false)"><span class="bullet"></span>500 workers</div>
+    </div>
+    <div class="quiz-explain" id="q6-ex"><strong>Correct!</strong> The IR Code raised the threshold from 100 to 300 workers, giving employers significantly more flexibility in workforce management.</div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C7: POSH ════════ -->
+<section class="ch" id="c7"><div class="ch-inner">
+  <div class="ch-ey">Chapter 07</div><h2>POSH Compliance</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 3 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>7.1 Core Requirements</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="al">
+      <li><span class="term">Internal Committee (IC)<span class="tip">A body mandated by POSH Act in every workplace. Must include an external member, be headed by a senior woman, and complete inquiries within 90 days.</span></span> with external expert — mandatory</li>
+      <li>Inquiries within <strong>90 days</strong></li>
+      <li>Annual report to district officer</li>
+      <li>Regular awareness sessions</li>
+      <li>Filing within 3 months (extendable by 3)</li>
+    </ul>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>7.2 Board Report Disclosures (July 2025)</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>Must include: complaint count, resolution status, gender composition, maternity compliance. Fines: ₹50K–₹3L; repeat → license cancellation.</p>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>7.3 Proposed Amendments</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="cbox c-purple"><div class="cbox-tag">📢 Bills in Rajya Sabha (Dec 2025)</div><div class="cbox-body"><strong>Gender Neutrality</strong> — all genders protected. <strong>Gig Worker Inclusion.</strong> <strong>Extended Filing</strong> — 3 months → 1 year. <strong>No Pre-Inquiry Conciliation.</strong> Not yet law, but prepare.</div></div>
+    <div class="cbox c-teal"><div class="cbox-tag">💻 SHe-Box Digital Portal</div><div class="cbox-body">Online filing for all women including informal sector. States directing all entities to register ICs on SHe-Box per Supreme Court directives.</div></div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C8: STATE ════════ -->
+<section class="ch" id="c8"><div class="ch-inner">
+  <div class="ch-ey">Chapter 08</div><h2>State-Specific Provisions</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 2 min read</span></div>
+  <p>Labor law is on the <span class="term">concurrent list<span class="tip">Both Central and State governments can legislate. Where there's conflict, central law prevails (with exceptions). This means compliance requirements can differ state to state.</span></span>. State S&amp;E Acts are <strong>not</strong> subsumed by the new codes.</p>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>Key Variations &amp; State Status</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Area</th><th>Range</th></tr></thead><tbody>
+      <tr><td class="td-b">Minimum Wages</td><td>Set by state; must exceed floor wage</td></tr>
+      <tr><td class="td-b">Earned Leave</td><td>12–21 days/year</td></tr>
+      <tr><td class="td-b">Sick Leave</td><td>6–12 days/year</td></tr>
+      <tr><td class="td-b">Festival Holidays</td><td>5–15/year</td></tr>
+      <tr><td class="td-b">Professional Tax</td><td>Some states don't levy it</td></tr>
+    </tbody></table></div>
+    <div class="cbox c-blue"><div class="cbox-tag">🗺 State Rules Status (Feb 2026)</div><div class="cbox-body"><strong>Final:</strong> Karnataka, Maharashtra, Kerala<br><strong>Partial:</strong> Delhi (Wage + SS done; IR + OSHWC pending)<br><strong>Draft:</strong> Most other states<br>Where overlap exists, apply the more beneficial provision.</div></div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C9: CHECKLISTS ════════ -->
+<section class="ch" id="c9"><div class="ch-inner">
+  <div class="ch-ey">Chapter 09</div><h2>HR Compliance Checklists</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 4 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>9.1 Monthly Compliance Calendar</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Due</th><th>Activity</th><th>Portal</th></tr></thead><tbody>
+      <tr><td class="td-b">7th/10th</td><td>Wages</td><td>Internal</td></tr>
+      <tr><td class="td-b">15th</td><td>EPF + ESI + TDS</td><td>EPFO / ESIC / IT</td></tr>
+      <tr><td class="td-b">25th</td><td>EPF ECR return</td><td>EPFO</td></tr>
+      <tr><td class="td-b">Monthly</td><td>Professional Tax</td><td>State PT</td></tr>
+      <tr><td class="td-b">Annual</td><td>Bonus, Gratuity review, POSH report, Board disclosures</td><td>Various</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>9.2 Full Transition Checklist (22 items)</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ul class="cl">
+      <li>Audit salary structures for 50% basic pay rule</li>
+      <li>Review workforce classifications (employee, worker, gig, platform, migrant)</li>
+      <li>Reassess fixed-term contracts and hiring models</li>
+      <li>Assess contract labour for core activities</li>
+      <li>Budget for increased PF/SS contributions</li>
+      <li>Estimate gratuity cost for fixed-term staff (1 year)</li>
+      <li>Issue appointment letters to all workers (3 months)</li>
+      <li>Schedule annual health check-ups for 40+ (120 days)</li>
+      <li>Align working hours with 8-hour limit</li>
+      <li>Update WFH policies</li>
+      <li>Prepare night-shift infrastructure for women</li>
+      <li>Establish Grievance Committee (20+ workers, with women)</li>
+      <li>Register IC on SHe-Box</li>
+      <li>Update POSH Board Report disclosures</li>
+      <li>Implement 2-day F&amp;F settlement</li>
+      <li>Set up Reskilling Fund process (10 days of retrenchment)</li>
+      <li>Update payroll for new wages + IT Act 2025 (1 Apr 2026)</li>
+      <li>Digitize all statutory registers</li>
+      <li>Release employee communications</li>
+      <li>Train HR teams &amp; managers</li>
+      <li>Monitor state rule notifications</li>
+      <li>Consult legal advisors for impact assessment</li>
+    </ul>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>9.3 Statutory Registers</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Register</th><th>Under</th><th>What</th></tr></thead><tbody>
+      <tr><td class="td-b">Muster Roll</td><td>OSHWC</td><td>Daily attendance</td></tr>
+      <tr><td class="td-b">Wage Register</td><td>Wages Code</td><td>Pay, deductions, OT, bonus</td></tr>
+      <tr><td class="td-b">Leave Register</td><td>State S&amp;E</td><td>Accrual, usage, carry-forward</td></tr>
+      <tr><td class="td-b">Overtime</td><td>OSHWC</td><td>OT hours &amp; payments</td></tr>
+      <tr><td class="td-b">Accident</td><td>SS Code</td><td>All incidents</td></tr>
+      <tr><td class="td-b">Equal Pay</td><td>Wages Code</td><td>Gender equity records</td></tr>
+      <tr><td class="td-b">POSH Complaints</td><td>POSH Act</td><td>Filed, resolved, pending</td></tr>
+      <tr><td class="td-b">PF &amp; ESI</td><td>SS Code</td><td>Contributions</td></tr>
+      <tr><td class="td-b">Appointment Letters</td><td>IR/OSHWC</td><td>For all workers</td></tr>
+    </tbody></table></div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C10: PENALTIES ════════ -->
+<section class="ch" id="c10"><div class="ch-inner">
+  <div class="ch-ey">Chapter 10</div><h2>Penalties for Non-Compliance</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 2 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>Penalty Schedule</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <div class="tbl"><table><thead><tr><th>Violation</th><th>First Offense</th><th>Repeat</th></tr></thead><tbody>
+      <tr><td class="td-b">Min. wages / late pay</td><td>≤₹50,000</td><td>≤₹1L + 3 months imprisonment</td></tr>
+      <tr><td class="td-b">EPF/ESI non-compliance</td><td>Fine + interest</td><td>Up to 3 years imprisonment</td></tr>
+      <tr><td class="td-b">POSH violation</td><td>₹50K–₹1L</td><td>License cancellation</td></tr>
+      <tr><td class="td-b">POSH Board Report</td><td>≤₹3L + ₹50K (officers)</td><td>Enhanced penalties</td></tr>
+      <tr><td class="td-b">No appointment letters</td><td>Fine per IR Code</td><td>Enhanced</td></tr>
+      <tr><td class="td-b">Unlawful retrenchment</td><td>Re-instatement + back wages</td><td>Additional penalties</td></tr>
+    </tbody></table></div>
+    <div class="cbox c-teal"><div class="cbox-tag">✓ Decriminalization of Minor Offenses</div><div class="cbox-body">First-time minor non-compliances → monetary penalties, not criminal prosecution. Encourages compliance. Willful/repeated violations still attract imprisonment.</div></div>
+  </div></div>
+</div></section>
+
+<!-- ════════ C11: AHEAD ════════ -->
+<section class="ch" id="c11"><div class="ch-inner">
+  <div class="ch-ey">Chapter 11</div><h2>Looking Ahead</h2>
+  <div class="ch-meta"><span class="reading-badge">📖 3 min read</span></div>
+
+  <div class="acc open"><div class="acc-head" onclick="ta(this)"><h3>11.1 Recommendations</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <ol class="nl">
+      <li><strong>Proactive governance</strong> — prepare now, don't wait for enforcement</li>
+      <li><strong>Impact assessment</strong> — quantify financial/policy impact</li>
+      <li><strong>Digital HR</strong> — automate payroll, attendance, compliance. Prepare for IT Act 2025 (1 Apr 2026)</li>
+      <li><strong>Train all HR</strong> — new definitions, thresholds, coverage</li>
+      <li><strong>Transparent communication</strong> — explain restructuring and benefits</li>
+      <li><strong>Track state developments</strong> — state-by-state monitoring</li>
+      <li><strong>Dual compliance</strong> — legacy + new during transition</li>
+      <li><strong>Document everything</strong> — fully digitized registers and trails</li>
+    </ol>
+    <div class="cbox c-red"><div class="cbox-tag">🔄 Upcoming — IT Act 2025 (1 Apr 2026)</div><div class="cbox-body">Replaces 1961 Act. New TDS calculations, Form 24Q/16 formats, stricter audit requirements. Plan alongside Labour Code compliance.</div></div>
+  </div></div>
+
+  <div class="acc"><div class="acc-head" onclick="ta(this)"><h3>11.2 The Bigger Picture</h3><span class="acc-arrow">▾</span></div><div class="acc-body">
+    <p>The codes represent modernization, inclusivity, and simplification. By recognizing gig workers, mandating appointment letters, extending social security, and enabling women's night shifts, India is building a more equitable labor market.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-v">29→4</div><div class="stat-l">Simplified framework</div></div>
+      <div class="stat"><div class="stat-v">1st</div><div class="stat-l">Gig worker recognition</div></div>
+      <div class="stat"><div class="stat-v">100%</div><div class="stat-l">Workers get letters</div></div>
+      <div class="stat"><div class="stat-v">2 days</div><div class="stat-l">F&amp;F settlement</div></div>
+    </div>
+    <p>HR professionals who embrace these changes proactively will position their organizations as employers of choice.</p>
+  </div></div>
+</div></section>
+
+<footer class="footer">
+  <p><strong>Disclaimer</strong> — For informational/educational purposes only; not legal advice. Consult qualified professionals. Current as of February 2026.</p>
+  <p style="margin-top:8px;font-size:.68rem;opacity:.5">© 2026 PeopleCraft. All rights reserved.</p>
+</footer>
+</main>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0})">↑</button>
+
+<script>
+/* ── Sidebar ── */
+function toggleSidebar(){document.getElementById('sb').classList.toggle('open');document.getElementById('ov').classList.toggle('show')}
+function closeSb(){document.getElementById('sb').classList.remove('open');document.getElementById('ov').classList.remove('show')}
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});if(innerWidth<=900)closeSb()}
+
+/* ── Scroll spy ── */
+const chs=[...document.querySelectorAll('.ch,.hero')];
+const nis=[...document.querySelectorAll('.nav-i[data-t]')];
+function spy(){
+  let cur='hero-s';
+  for(const c of chs)if(c.getBoundingClientRect().top<=90)cur=c.id;
+  nis.forEach(n=>n.classList.toggle('on',n.dataset.t===cur));
+}
+function prog(){
+  const h=document.documentElement;
+  document.getElementById('pf').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';
+  document.getElementById('btt').classList.toggle('show',h.scrollTop>400);
+}
+window.addEventListener('scroll',()=>{spy();prog()},{passive:true});
+
+/* ── Accordion ── */
+function ta(h){h.parentElement.classList.toggle('open')}
+
+/* ── Example toggle ── */
+function te(h){h.parentElement.classList.toggle('open')}
+
+/* ── Theme ── */
+function toggleTheme(){
+  const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',t);localStorage.setItem('hb-t',t);
+}
+(()=>{const s=localStorage.getItem('hb-t');if(s)document.documentElement.setAttribute('data-theme',s);else if(matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark')})();
+
+/* ── Font size ── */
+function changeFontSize(d){
+  let s=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--font-scale'))||1;
+  s=Math.min(1.3,Math.max(0.8,s+d));
+  document.documentElement.style.setProperty('--font-scale',s);
+  localStorage.setItem('hb-fs',s);
+}
+(()=>{const s=localStorage.getItem('hb-fs');if(s)document.documentElement.style.setProperty('--font-scale',s)})();
+
+/* ── Bookmarks ── */
+let bms=JSON.parse(localStorage.getItem('hb-bm')||'[]');
+function rbm(){document.querySelectorAll('.bm').forEach(b=>{const c=b.dataset.c;b.textContent=bms.includes(c)?'★':'☆';b.classList.toggle('saved',bms.includes(c))})}
+function bm(c){if(bms.includes(c))bms=bms.filter(x=>x!==c);else bms.push(c);localStorage.setItem('hb-bm',JSON.stringify(bms));rbm()}
+rbm();
+
+/* ── Quiz ── */
+function checkQuiz(el,qid,correct){
+  const opts=el.parentElement.querySelectorAll('.quiz-opt');
+  opts.forEach(o=>{o.classList.add('disabled');if(o===el)o.classList.add(correct?'correct':'wrong');
+    if(!correct&&o.onclick.toString().includes('true'))o.classList.add('correct')});
+  el.querySelector('.bullet').textContent=correct?'✓':'✗';
+  if(correct)opts.forEach(o=>{if(o!==el&&o.classList.contains('correct')){o.classList.remove('correct')}});
+  // Show correct answer's bullet
+  opts.forEach(o=>{if(o.classList.contains('correct'))o.querySelector('.bullet').textContent='✓'});
+  document.getElementById(qid+'-ex').classList.add('show');
+}
+
+/* ── Search ── */
+const si=document.getElementById('si'),sr=document.getElementById('sr');
+const sdata=[];
+document.querySelectorAll('.ch').forEach(c=>{sdata.push({id:c.id,title:c.querySelector('h2')?.textContent||'',text:c.textContent.replace(/\s+/g,' ')})});
+si.addEventListener('input',()=>{
+  const q=si.value.trim().toLowerCase();
+  if(q.length<2){sr.classList.remove('open');sr.innerHTML='';return}
+  const res=[];
+  sdata.forEach(c=>{const i=c.text.toLowerCase().indexOf(q);if(i>=0){
+    let s=c.text.substring(Math.max(0,i-35),Math.min(c.text.length,i+q.length+55)).trim();
+    if(i>35)s='…'+s;if(i+q.length+55<c.text.length)s+='…';
+    s=s.replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<mark>$1</mark>');
+    res.push({id:c.id,title:c.title,s})}});
+  sr.innerHTML=res.length?res.slice(0,8).map(r=>`<div class="s-item" onclick="go('${r.id}');sr.classList.remove('open');si.value=''"><div class="s-ch">${r.title}</div><div class="s-snip">${r.s}</div></div>`).join(''):'<div class="s-empty">No results</div>';
+  sr.classList.add('open');
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.searchbox'))sr.classList.remove('open')});
+
+/* ── Keys ── */
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();si.focus()}
+  if(e.key==='Escape'){si.blur();sr.classList.remove('open');closeSb()}
+  if(document.activeElement.tagName==='INPUT')return;
+  if(e.key==='d')toggleTheme();
+  if(e.key==='m')toggleSidebar();
+  const ci=nis.findIndex(n=>n.classList.contains('on'));
+  if(e.key==='ArrowDown'&&ci<nis.length-1){e.preventDefault();go(nis[ci+1].dataset.t)}
+  if(e.key==='ArrowUp'&&ci>0){e.preventDefault();go(nis[ci-1].dataset.t)}
+});
+
+spy();prog();
+</script>
+</body>
+</html>
